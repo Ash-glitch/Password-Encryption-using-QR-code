@@ -4,15 +4,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
- body{
+body{
   background: #A7EDE7;
 }
 
-.btn:hover{
+button:hover{
   background: #11009E;
 }
 
-.container{
+.main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
   width: 400px;
   padding: 50px 50px 50px;
   position: absolute;
@@ -21,15 +28,18 @@
   transform: translate(-50%,-50%);
   background: #fff;
   border-radius: 10px;
+  display: none;
+  /* transition: max-height 1s;
+  transition: width 1s; */
 }
 
-.container p{
+#container p{
   font-weight: 600;
   font-size: 15px;
   margin-bottom: 8px;
 }
 
-.container input{
+input[type="text"]{
   width: 100%;
   height: 30px;
   border: 1px solid #494eea;
@@ -39,7 +49,67 @@
   border-radius: 5px;
 }
 
-.container button{
+input[type="file"]{
+  display: none;
+}
+
+label{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  margin: auto;
+  padding: 13px 13px 13px;
+  top: 5%;
+  background-color: #494eea;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+label:hover{
+  background-color: #11009E;
+}
+
+.gg-qr {
+    transform: scale(var(--ggs,1))
+}
+.gg-qr,
+.gg-qr::after {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    box-shadow:
+        -6px -6px 0 -4px,
+        6px 6px 0 -4px,
+        6px -6px 0 -4px,
+        -6px 6px 0 -4px
+}
+.gg-qr::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    box-shadow:
+        0 6px 0,
+        6px 6px 0,
+        6px 0 0;
+    top: 2px;
+    left: 2px;
+}
+
+label p{
+  position: relative;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+button{
   width: 100%;
   height: 50px;
   background: #494eea;
@@ -60,18 +130,69 @@
   transition: max-height 1s;
 }
 
+#imgBox canvas{
+  margin: 15px auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#imgBox button{
+  margin-top: 0px;
+}
+
+#decrypt{
+  width: 400px;
+  padding: 50px 50px 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 10px;
+  display: none;
+}
+
 #imgBox img{
   width: 100%;
 }
 
 #imgBox.show-img{
-  max-height: 200px;
+  max-height: 400px;
   margin: 10px auto;
   border: 1px solid #d1d1d1;
 }
 
+#container.show-div{
+  display: block;
+}
+
+#decrypt.show-div{
+  display: block;
+}
+
+#decrypt button{
+  margin-top: 20px;
+}
+
+#qrImage{
+  display: none;
+}
+
 #qrText.error{
   border-color: red;
+}
+
+#password{
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translateX(-50%);
+  margin: 10px auto;
+  padding: 5px 5px 5px;
+  background-color: #88E570;
+  border-radius: 4px;
+  color: #fff;
 }
 
 .error{
@@ -92,194 +213,5 @@
   }
   100%{
     transform: translateX(0);
-  }
-}
-
-.opened-menu{
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #494eea;
-  width: 0;
-  height: 100vh;
-  display: none;
-  z-index: 1;
-}
-.menu-box{
-  height: inherit;
-  width: 45px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding:0;
-  background-color: inherit;
-  border: none;
-  z-index:2;
-}
-.menu-box:hover{
-  background-color: #00909E;
-}
-.menu{
-  margin: 10px 5px ;
-  height: 4px;
-  width: 35px;
-  background-color: #DAE1E7;
-  border-radius: 2px;
-}
-.foot-elements:hover{
-  color: #DAE1E7;
-}
-h3{
-  color:#494eea;
-}
-hr{
-  border-style: groove;
-  border-top-width: 1px;
-  border-top-color: #494eea;
-  border-bottom-width: 0;
-  margin: 0 200px;
-}
-.intro{
-  padding-top: 20px;
-}
-.header{
-  background-color: #494eea;
-  font-size: 0.6rem;
-  margin:0;
-  padding:0;
-  position :fixed;
-  width: 100%;
-  height: 60px;
-  border-radius: 10px;
-}
-.heading{
-  color:#DAE1E7;
-  font-family: 'Papyrus', fantasy;
-  font-weight: bold;
-  font-size: 20px;
-  text-decoration: none;
-  margin-left: 20px;
-  position:absolute;
-  left: 45px;
-  top:50%;
-  transform: translateY(-50%);
-}
-h1{
-  position: relative;
-  left: 15px;
-}
-.upload{
-  display:inline-block;
-  height: inherit;
-  position: absolute;
-  left: 880px;
-  top:0;
-  bottom:0;
-  margin:0;
-  width:100px;
-  /* padding: 0 10px; */
-}
-.dropdown-button{
-  position:relative;
-  color: #DAE1E7;
-  background-color:inherit;
-  font-family:'Segoe UI',sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  width: inherit;
-  height: inherit;
-  padding:0;
-}
-.dropdown-content{
-  background-color: #494eea;
-  font-family: 'Segoe UI',sans-serif;
-  font-weight: bold;
-  display: none;
-  position:absolute;
-  z-index: 1;
-  left: 0;
-  width:150px;
-  height: 160px;
-}
-.dropdown-content a{
-  text-decoration: none;
-  color: #DAE1E7;
-  font-size: 20px;
-  font-weight: bold;
-  width: inherit;
-  height: 40px;
-  display:block;
-}
-.upload:hover .dropdown-content{
-  display:block;
-}
-
-.upload:hover{
-  background-color: #00909E;
-}
-.dropdown-content a:hover{
-  background-color: #494eea;
-}
-.about{
-  background-color: inherit;
-  display: inline-block;
-  height: inherit;
-  width: 100px;
-  position: absolute;
-  left: 1000px;
-}
-.about a{
-  text-decoration: none;
-  font-family:'Segoe UI',sans-serif;
-  font-weight: bold;
-  color: #DAE1E7;
-  font-size: 18px;
-  position:absolute;
-  top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-
-}
-.contact:hover{
-  background-color: #00909E;
-}
-.contact{
-  background-color: inherit;
-  display: inline-block;
-  height: inherit;
-  width: 120px;
-  position: absolute;
-  left: 1100px;
-}
-.contact a{
-  text-decoration: none;
-  font-family:'Segoe UI',sans-serif;
-  font-weight: bold;
-  color: #DAE1E7;
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-}
-.about:hover{
-  background-color: #00909E;
-}
-.topic{
-  width: 20%;
-  height: 20%;
-}
-.hide{
-  display:block;
-  animation : start 250ms ease-in forwards ;
-}
-
-@keyframes start{
-  50% {
-    width : 200px;
-  }
-  100%{
-    width: 400px;
   }
 }
